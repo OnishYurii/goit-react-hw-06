@@ -1,8 +1,11 @@
 import css from './Contact.module.css';
 import { FaPhone } from 'react-icons/fa6';
 import { IoPerson } from 'react-icons/io5';
+import { useDispatch } from 'react-redux';
+import { deleteContact } from '../../redux/contactsSlicer';
 
-export const Contact = ({ item: { name, number, id }, onDelete }) => {
+export const Contact = ({ item: { name, number, id } }) => {
+  const dispatch = useDispatch();
   return (
     <div className={css.contactForm}>
       <h2 className={css.text}>
@@ -13,7 +16,7 @@ export const Contact = ({ item: { name, number, id }, onDelete }) => {
         <FaPhone />
         {number}
       </p>
-      <button className={css.deleteBtn} onClick={() => onDelete(id)}>
+      <button className={css.deleteBtn} onClick={() => dispatch(deleteContact(id))}>
         Delete
       </button>
     </div>
