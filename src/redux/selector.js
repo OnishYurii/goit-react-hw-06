@@ -8,3 +8,5 @@ export const selectFilteredContacts = state => {
     return filteredContacts;
   }
 };
+
+export const getFilter = state => state.filters.name;
